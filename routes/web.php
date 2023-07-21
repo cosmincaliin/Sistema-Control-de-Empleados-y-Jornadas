@@ -29,9 +29,9 @@ use App\Models\Solicitud;
 Route::get('/', function () {
 
     if(Auth::check() && Auth::user()->rol==='admin'){
-        return view('admin.dashboard');
+        return view('admin.fichar');
     }else if(Auth::check() && Auth::user()->rol==='employee'){
-        return view('employee.dashboard');
+        return view('employee.fichar');
     }else{
         return view('auth.login');
     };

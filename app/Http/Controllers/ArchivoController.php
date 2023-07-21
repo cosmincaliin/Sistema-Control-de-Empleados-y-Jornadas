@@ -17,6 +17,14 @@ class ArchivoController extends Controller
 
     public function subirArchivo(Request $request)
     {
+        $request->validate([
+            'archivo' => 'required|mimes:jpeg,png,pdf,doc,docx|max:2048',
+        ], [
+            'archivo.required' => 'Debe seleccionar un archivo para subir.',
+            'archivo.mimes' => 'El archivo debe ser de tipo jpeg, png, pdf, doc o docx.',
+            'archivo.max' => 'El tamaño máximo del archivo es 2 MB.',
+        ]);
+        
         $empleadoId = Auth::user()->id;
 
         $archivo = $request->file('archivo');

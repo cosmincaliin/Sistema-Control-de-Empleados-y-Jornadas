@@ -7,23 +7,34 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Work Planner</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('assets/img/work.png')}}" type="image/x-icon">
 
+    <link rel="stylesheet" href="{{asset('assets/css/index.css')}}">
 
+    <style>
+        button[type=submit].btn{
+            background-color: #4FB497;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
     <!-- Scripts -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body id="body">
     <div id="app " >
         <nav  class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container" >
-                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset('assets/img/Kiwop.png')}}" style="width: 8rem; height: 3rem;" alt="Logo kiwop">
-                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
