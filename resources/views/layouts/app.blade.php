@@ -27,7 +27,6 @@
     </style>
     <!-- Scripts -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body id="body">
@@ -78,9 +77,10 @@
                 </div>
             </div>
         </nav>
-        <script src="{{asset('js/calendario.js')}}"></script>
+        <script src="{{asset('assets/js/calendario.js')}}"></script>
         <main id="main" style="height:80vh;" >
             @yield('content')
+            @yield('scripts')
         </main>
     </div>
 </body>

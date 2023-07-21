@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <h1 class="text-center">Panel de control del Administrador</h1>
 <div class="py-4 d-flex col-lg-9 gap-2 w-100">
@@ -14,12 +15,12 @@
             @if (Auth::user()->activo===1)
             <form action="{{ route('registrar-entrada-salida') }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary" name="accion" value="entrada">Registrar Salida</button>
+                <button type="submit" class="btn btn-primary" name="accion" value="salida">Registrar Salida</button>
             </form>
             @else
-            <form id="entrada" action="{{ route('registrar-entrada-salida') }}" method="POST">
+            <form id="entrada" action="{{ route('registrar-entrada-salida') }}" method="POST" >
                 @csrf
-                <button onclick="geoposition()"  type="submit" class="btn btn-primary" name="accion" value="entrada" onclick="geoposition()">Registrar Entrada</button>
+                <button type="submit" class="btn btn-primary" name="accion" value="entrada">Registrar Entrada</button>
             </form>
             @endif
 
@@ -29,44 +30,14 @@
             </div>
             @endif
         </div>
-
+     <div id="nombre"></div>
     </div>
 </div>
-<script>
-    function setCookie(name, value, hoursToExpire) {
-        const now = new Date();
-        const time = now.getTime();
-        time += hoursToExpire * 60 * 60 * 1000;
-        now.setTime(time);
-        document.cookie = `${name}=${value}; expires=${now.toUTCString()}; path=/`;
-    }
+@section('scripts')
+    <script>
+        let nombreUsuario="{{Auth::user()->name}}";
+    </script>
+    <script src="{{asset('assets/js/map.js')}}"></script>
 
-    let form= document.getElementById('entrada')
-    btn.addEventListener('submit',function geoposition(event) {
-        event.preventDefault()
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(
-                function (position) {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-
-                    // Crear una cookie que dure 24 horas para almacenar la geolocalización
-                    setCookie("geolocalizacion", `${latitude},${longitude}`, 24);
-                    console.log("Geolocalización almacenada en la cookie.");
-                    
-                    form.submit();
-                },
-                function (error) {
-                    console.error("Error al obtener la geolocalización:", error);
-                }
-            );
-        } else {
-            console.error("La geolocalización no está disponible en este navegador.");
-        }
-
-    })
-
-</script>
-
-
+@endsection
 @endsection
