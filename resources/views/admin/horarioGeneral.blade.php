@@ -9,7 +9,7 @@
         @include('layouts._partials.nav')
     </div>
 
-    <div class="col-lg-8 d-flex">
+    <div class="col-lg-11 d-flex">
 
         <form action="{{ route('admin.horarioGeneral') }}" method="GET" class="mb-4">
             <div class="row">
@@ -58,36 +58,40 @@
             <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
         </form>
 
-        <table class="table mx-5 text-center w-75">
-            <thead class="table-primary">
-              <th>Nombre</th>
-              <th >Fecha y Hora de Entrada</th>
-              <th>Fecha y Hora de Salida</th>
-              <th>Horas trabajadas</th>
-            </thead>
-            <tbody>
-             @foreach ($horarioGeneral as $registro)
-             <tr>
-                <td>{{ $registro->user->name }}</td>
-                <td>{{ $registro->entrada }}</td>
-                <td>{{ $registro->salida }}</td>
-                <td>
-                    <?php
-                        $entrada = \Carbon\Carbon::parse($registro->entrada);
-                        $salida = \Carbon\Carbon::parse($registro->salida);
-                        $diferencia = $salida->diff($entrada);
-                        echo $diferencia->format('%H:%I');
-                    ?>
-                  </td>
-             </tr>
+        <section>
+            <table class="table mx-5 text-center w-100">
+                <thead class="table-primary">
+                  <th>Nombre</th>
+                  <th >Fecha y Hora de Entrada</th>
+                  <th>Fecha y Hora de Salida</th>
+                  <th>Horas trabajadas</th>
+                </thead>
+                <tbody>
+                 @foreach ($horarioGeneral as $registro)
+                 <tr>
+                    <td>{{ $registro->user->name }}</td>
+                    <td>{{ $registro->entrada }}</td>
+                    <td>{{ $registro->salida }}</td>
+                    <td>
+                        <?php
+                            $entrada = \Carbon\Carbon::parse($registro->entrada);
+                            $salida = \Carbon\Carbon::parse($registro->salida);
+                            $diferencia = $salida->diff($entrada);
+                            echo $diferencia->format('%H:%I');
+                        ?>
+                      </td>
+                 </tr>
 
 
-            @endforeach
-            </tbody>
-        </table>
+                @endforeach
+                </tbody>
+            </table>
 
-          <div class="d-flex justify-content-center">
-            {{ $horarioGeneral->links() }}
+              <div class="d-flex justify-content-center">
+                {{ $horarioGeneral->links() }}
+              </div>
+        </section>
+
 
     </div>
 
