@@ -62,6 +62,7 @@ Route::middleware(['rol:admin'])->group(function () {
     Route::get('/admin/horarios/filtrar', [HorarioGeneralController::class, 'filtrar'])->name('admin.horarioGeneral');
     Route::get('/empleados',[ArchivoController::class, 'empleados'])->name('empleados');
     Route::get('/docsEmpleados/{empleado}',[ArchivoController::class, 'verDocsEmpleados'])->name('verDocsEmpleados');
+    Route::view('/mapa-fichajes', 'admin.mapa')->name('mapa');
 });
 
 // Rutas para el empleado
