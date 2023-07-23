@@ -34,11 +34,21 @@ class EventoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Evento $evento)
-    {
-        $evento=Evento::all();
-        return response()->json($evento);
-    }
+    public function show(Request $request, Evento $evento)
+{
+  $eventos = Evento::all();
+
+  $eventosArray = [];
+  foreach ($eventos as $evento) {
+    $eventosArray[] = [
+      'title' => $evento->title,
+      'start' => $evento->start,
+      'end' => $evento->end,
+    ];
+  }
+
+  return response()->json($eventosArray);
+}
 
     /**
      * Show the form for editing the specified resource.

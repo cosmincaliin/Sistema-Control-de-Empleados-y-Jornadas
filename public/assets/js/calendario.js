@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,listWeek'
         },
-        events: 'http://localhost/KIWOP/Control-de-Fichajes/Control_de_Fichajes/public/eventos',
+        
+        events: 'http://localhost/KIWOP/Control_de_Fichajes/public/eventos',
 
     });
-    
+
     calendar.render();
 });
