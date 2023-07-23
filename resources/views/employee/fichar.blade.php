@@ -17,7 +17,7 @@
                 <button type="submit" class="btn btn-primary" name="accion" value="entrada">Registrar Salida</button>
             </form>
             @else
-            <form action="{{ route('registrar-entrada-salida') }}" method="POST">
+            <form id="entrada" action="{{ route('registrar-entrada-salida') }}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-primary" name="accion" value="entrada">Registrar Entrada</button>
             </form>
@@ -32,5 +32,11 @@
 
     </div>
 </div>
+@section('scripts')
+    <script>
+        let nombreUsuario="{{Auth::user()->name}}";
+    </script>
+    <script src="{{asset('assets/js/map.js')}}"></script>
 
+@endsection
 @endsection

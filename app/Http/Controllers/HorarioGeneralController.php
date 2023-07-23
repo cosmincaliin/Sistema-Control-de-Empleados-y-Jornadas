@@ -29,7 +29,7 @@ class HorarioGeneralController extends Controller{
 
         $horarioGeneral = Registro::whereMonth('entrada', $mes)
                             ->whereYear('entrada', $anio)
-                            ->paginate(10);
+                            ->paginate(9);
 
         // Resto del código del controlador
 
