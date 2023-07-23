@@ -41,9 +41,6 @@
             <a class="text-white text-decoration-none nav-item btn " href="{{route('calendario')}}">
                 Calendario
             </a>
-            <a class="text-white text-decoration-none nav-item btn " href="{{route('archivo.ver-todos')}}">
-                Ver Archivos
-            </a>
             <a class="text-white text-decoration-none nav-item btn " href="{{route('mapa')}}">
                 Mapa de Fichajes
             </a>

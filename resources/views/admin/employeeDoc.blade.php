@@ -1,5 +1,4 @@
 @extends('layouts.app')
-echo $archivos
 @section('content')
 <h1 class="text-center">Archivos de Empleados</h1>
 

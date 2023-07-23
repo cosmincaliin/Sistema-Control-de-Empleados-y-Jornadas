@@ -58,7 +58,6 @@ Route::middleware(['rol:admin'])->group(function () {
     Route::post('/desaprobar/{solicitud}', [SolicitudesPendientesController::class, 'reject'])->name('reject');
     Route::get('/eventos',[EventoController::class, 'show'])->name('eventos');
     Route::view('/calendario','admin.calendario')->name('calendario');
-    Route::get('/admin/archivos', [ArchivoController::class, 'verArchivos'])->name('archivo.ver-todos');
     Route::get('/admin/horarios/filtrar', [HorarioGeneralController::class, 'filtrar'])->name('admin.horarioGeneral');
     Route::get('/empleados',[ArchivoController::class, 'empleados'])->name('empleados');
     Route::get('/docsEmpleados/{empleado}',[ArchivoController::class, 'verDocsEmpleados'])->name('verDocsEmpleados');

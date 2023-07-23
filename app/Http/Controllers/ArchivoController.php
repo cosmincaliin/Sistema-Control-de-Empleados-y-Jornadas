@@ -24,7 +24,7 @@ class ArchivoController extends Controller
             'archivo.mimes' => 'El archivo debe ser de tipo jpeg, png, pdf, doc o docx.',
             'archivo.max' => 'El tamaño máximo del archivo es 2 MB.',
         ]);
-        
+
         $empleadoId = Auth::user()->id;
 
         $archivo = $request->file('archivo');
@@ -40,13 +40,6 @@ class ArchivoController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Archivo subido exitosamente.');
-    }
-
-    public function verArchivos()
-    {
-        $archivos = Archivo::all();
-
-        return view('archivos.ver-todos', compact('archivos'));
     }
 
     public function verMisDocs(Request $request){
