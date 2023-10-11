@@ -15,7 +15,7 @@ class HorarioGeneralController extends Controller{
         $anio = $request->input('anio');
 
         $horarioGeneral = Registro::with('user')
-        ->paginate(8);
+        ->paginate(20);
 
 
         return view('admin.horarioGeneral', compact('horarioGeneral', 'mes', 'anio'));
