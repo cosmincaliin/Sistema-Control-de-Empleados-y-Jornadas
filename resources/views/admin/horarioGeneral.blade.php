@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#horarioTable').DataTable();
+    });
+</script>
 <h1 class="text-center">Panel de control del Administrador</h1>
 
 <div class="py-4 d-flex col-lg-9 gap-5 w-100">
@@ -59,7 +67,7 @@
         </form>
 
         <section>
-            <table class="table mx-5 text-center w-100">
+            <table id="horarioTable" class="table mx-5 text-center w-100">
                 <thead class="table-primary">
                   <th>Nombre</th>
                   <th >Fecha y Hora de Entrada</th>
@@ -86,7 +94,7 @@
                 @endforeach
                 </tbody>
             </table>
-
+            
               <div class="d-flex justify-content-center">
                 {{ $horarioGeneral->links() }}
               </div>
